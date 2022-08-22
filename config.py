@@ -1,2 +1,2 @@
-TOKEN = '5592228507:AAGR8XFmXqNdMgYdnvd4THD4B0lfgpJ-BfM'
+TOKEN = 'token'
 admin_id = '1165894052'
