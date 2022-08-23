@@ -49,11 +49,6 @@ async def echo(message: types.Message):
     await message.answer(message.text)
 
 
-
-
-#admin messages must be above...
-
-
 if __name__ == '__main__':
     from handlers import dp, send_to_admin
     executor.start_polling(dp, on_startup=send_to_admin)
