@@ -1,2 +1,2 @@
-TOKEN = '5592228507:AAGR8XFmXqNdMgYdnvd4THD4B0lfgpJ-BfM'
-admin_id = '1165894052'
+TOKEN = 'token must be here'
+admin_id = 'admin_id must be here too'
