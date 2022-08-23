@@ -24,6 +24,11 @@ async def greetings_kb(message: types.Message):
 
     await message.reply('Hello!', reply_markup=kb.greeting_keyboard)
 
+@dp.message_handler(commands=['bye'])
+async def greetings_kb(message: types.Message):
+
+    await message.reply('Hello!', reply_markup=kb.greeting_keyboard)
+
 
 #some talk actions
 

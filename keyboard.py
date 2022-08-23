@@ -4,7 +4,9 @@ from aiogram.types.reply_keyboard import ReplyKeyboardMarkup, ReplyKeyboardRemov
 #from aiogram.dispatcher.filters import Command, Text
 
 greeting_button = KeyboardButton('Hiii') 
+parting_button = KeyboardButton('Byeee')
 
-greeting_keyboard = ReplyKeyboardMarkup(resize_keyboard=True).add(greeting_button)
+greeting_keyboard = ReplyKeyboardMarkup(resize_keyboard=True).add(greeting_button, parting_button)
+
 
 
