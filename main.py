@@ -5,8 +5,6 @@ API_link = 'https://api.telegram.org/bot5592228507:AAGR8XFmXqNdMgYdnvd4THD4B0lfg
 updates = requests.get(API_link + '/getUpdates?offset=-1').json()
 
 
-from aiogram.types.reply_keyboard import ReplyKeyboardMarkup, ReplyKeyboardRemove, KeyboardButton #
-from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup #
 
 import logging
 
@@ -22,11 +20,6 @@ bot = Bot(token=TOKEN, parse_mode='HTML')
 dp = Dispatcher(bot)
 
 #inlinekeyboards #
-
-inlkeyboard1 = InlineKeyboardButton(text='text', callback_data='random no 1')
-inlkeyboard2 = InlineKeyboardButton(text='text', callback_data='random no 2')
-
-keyboard_inline = InlineKeyboardMarkup().add(inlkeyboard1, inlkeyboard2)
 
 
 
@@ -65,6 +58,7 @@ async def greetings_kb(message: types.Message):
 #some talk actions
 
 from commands import list_of_commands as loc
+
 @dp.message_handler(commands=['help'])
 async def commands_list(message: types.Message):
 

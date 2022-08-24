@@ -1,2 +1,3 @@
 TOKEN = '5592228507:AAGR8XFmXqNdMgYdnvd4THD4B0lfgpJ-BfM'
 admin_id = '1165894052'
+moderator_id = '389880871'
