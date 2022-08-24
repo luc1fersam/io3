@@ -5,6 +5,9 @@ API_link = 'https://api.telegram.org/bot5592228507:AAGR8XFmXqNdMgYdnvd4THD4B0lfg
 updates = requests.get(API_link + '/getUpdates?offset=-1').json()
 
 
+from aiogram.types.reply_keyboard import ReplyKeyboardMarkup, ReplyKeyboardRemove, KeyboardButton #
+from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup #
+
 import logging
 
 from config import TOKEN, admin_id
@@ -17,6 +20,35 @@ logging.basicConfig(level=logging.INFO)
 
 bot = Bot(token=TOKEN, parse_mode='HTML')
 dp = Dispatcher(bot)
+
+#inlinekeyboards #
+
+inlkeyboard1 = InlineKeyboardButton(text='text', callback_data='random no 1')
+inlkeyboard2 = InlineKeyboardButton(text='text', callback_data='random no 2')
+
+keyboard_inline = InlineKeyboardMarkup().add(inlkeyboard1, inlkeyboard2)
+
+
+
+#inline #
+@dp.message_handler(commands=['random'])
+async def random_keyboard(message: types.Message):
+
+    await message.reply('select a smth//', reply_markup=kb.keyboard_inline)
+
+@dp.callback_query_handler(text=['random no 1', 'random no 2'], )
+async def random_phrase(call: types.CallbackQuery):
+    
+    if call.data == 'random no 1':
+        
+        await call.message.answer('ТЫ НЕ С УЛИЦЫ ПАРЕНЬ, ТЫ ПРОСТО СУИЦИДАЛЕН')
+
+    if call.data == 'random no 2':
+
+        await call.message.answer('С ДЕТЬМИ БЫЛИ ТАМ ВЧЕРА')
+
+    await call.answer()
+
 
 #keyboard actions
 @dp.message_handler(commands=['hi'])
@@ -47,6 +79,8 @@ async def greetings(message: types.Message):
 async def echo(message: types.Message):
     
     await message.answer(message.text)
+
+
 
 
 if __name__ == '__main__':
